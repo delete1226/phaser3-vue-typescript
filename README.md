@@ -1,6 +1,6 @@
-# 飞机demo
+# 游戏练习demo
 
-> 游戏练习demo
+> 飞机游戏demo
 
 ## Build Setup
 
