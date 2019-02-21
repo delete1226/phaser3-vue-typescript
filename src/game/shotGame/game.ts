@@ -3,8 +3,8 @@ import CONFIG from "./tool/Config";
 import GameScene from "./scene/GameScene";
 
 const config: GameConfig = {
-  width: 360,
-  height: 560,
+  width: 320,
+  height: 682,
   type: Phaser.AUTO,
   parent: "cvs",
   scene: [GameScene],

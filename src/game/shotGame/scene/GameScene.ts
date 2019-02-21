@@ -33,7 +33,7 @@ class GameScene extends Phaser.Scene {
   //create
   create(): void {
     this.map = new Map(this,0,0,'map'); 
-    this.map2 = new Map(this,0,560,'map'); 
+    this.map2 = new Map(this,0,683,'map'); 
     this.player = new Player(this,180,500,'player');
     this.touch()
     this.anims.create({

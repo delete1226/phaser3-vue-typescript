@@ -10,8 +10,8 @@ class Map extends Phaser.GameObjects.Sprite {
 
   move(): void{
     this.y++
-    if(this.y>=560){
-      this.y=-560;
+    if(this.y>=682){
+      this.y=-682;
     }
   }
 }
