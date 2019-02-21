@@ -6,7 +6,9 @@ let EnmyManager :any = {
         this.addSpeed++;
         if (this.addSpeed>20){
             this.addSpeed=0
-            this.enemy = new Enemy(obj, Math.random()*360, 5,'enemy')
+            let enemyX = Math.random()*320
+            enemyX = enemyX>64?enemyX-64:enemyX
+            this.enemy = new Enemy(obj, enemyX, 5,'enemy')
             this.enemyArr.unshift(this.enemy)
         }
     },

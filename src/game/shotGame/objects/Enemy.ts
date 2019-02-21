@@ -20,6 +20,7 @@ class Enemy extends Plane {
     }
     move():void{
         // this.x+=this.xSpeed;
+        // console.log(this.y)
         this.y+= this.ySpeed;
         if (this.overFlg()){
             this.life = false

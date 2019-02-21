@@ -26,7 +26,7 @@ class Plane extends Phaser.GameObjects.Sprite {
         return false
     }
     collision(targe:any):boolean{
-      
+        
         if(this.x+this.width<targe.x){
             // console.log(this.x+this.width,targe.x)
             return false

@@ -11,6 +11,7 @@ class GameScene extends Phaser.Scene {
   private map2: any='';
   private player: any='';
   private enemy: any='';
+  private sprites: any=''
   // private bullet: any='';
   //构造函数
   constructor() {
@@ -20,11 +21,13 @@ class GameScene extends Phaser.Scene {
 
   //loading
   preload(): void {
-    this.load.image("map", require("@/game/res/map.jpg"));
+    this.load.image("map", require("@/game/res/map.png"));
     this.load.image("player", require("@/game/res/player.png"));
     this.load.image("bullet", require("@/game/res/playerbullet.png"));
-    this.load.image("enemy", require("@/game/res/enemy.png"))
+    // this.load.image("enemy", require("@/game/res/enemy.png"))
     this.load.image("enemybullet", require("@/game/res/enemybullet.png"))
+    this.load.spritesheet("enemy", require("@/game/res/enemy_duck.png"), {frameWidth:54, frameHeight:41, endFrame:9})
+    this.load.spritesheet("boom", require("@/game/res/boom.png"), {frameWidth:98, frameHeight:97, endFrame:13})
   }
 
   //create
@@ -33,6 +36,13 @@ class GameScene extends Phaser.Scene {
     this.map2 = new Map(this,0,560,'map'); 
     this.player = new Player(this,180,500,'player');
     this.touch()
+    this.anims.create({
+      key: "walk",
+      frames: this.anims.generateFrameNumbers('boom',{start: 0, end: 13}),
+      frameRate:10,
+      repeat:0
+    })
+    // this.sprites = this.anims
     // this.enemy = new Enemy(this, 180,100,'enemy')
     // this.bullet = new Bullet(this,180,100, 'bullet')
   }
@@ -59,6 +69,17 @@ class GameScene extends Phaser.Scene {
       for(let j=0; j<EnemyManager.enemyArr.length; j++){
         let enemy = EnemyManager.enemyArr[j]
         if (bullet.collision(enemy)){
+          let boomPlay = this.add.sprite(enemy.x, enemy.y, 'boom')
+          let sprites = this.anims
+          boomPlay.play('walk')
+          // this.time.addEvent({
+          //   delay:1000,
+          //   repeat:0,
+          //   callbackScope: this,
+          //   callback: function(){
+          //     sprites.remove()
+          //   }
+          // })
           enemy.life = false;
         }
       }
