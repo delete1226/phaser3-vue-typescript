@@ -1,6 +1,6 @@
-# pha
+# 飞机demo
 
-> A Vue.js project
+> 游戏练习demo
 
 ## Build Setup
 
